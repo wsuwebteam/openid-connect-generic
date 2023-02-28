@@ -12,7 +12,7 @@ jobs:
   release:
     name: New Release
 
-    if: github.repository == 'oidc-wp/openid-connect-generic'
+    if: github.repository == 'wsuwebteam/openid-connect-generic'
 
     runs-on: ubuntu-latest
 
@@ -49,11 +49,11 @@ jobs:
     - name: Prepare a WordPress.org Release
       run: npm run release
 
-    - name: WordPress.org Plugin Deploy
-      uses: nk-o/action-wordpress-plugin-deploy@master
-      # https://github.com/marketplace/actions/wordpress-plugin-deploy
-      env:
-        SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
-        SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
-        SOURCE_DIR: dist/
-        SLUG: daggerhart-openid-connect-generic
+    # - name: WordPress.org Plugin Deploy
+    #   uses: nk-o/action-wordpress-plugin-deploy@master
+    #   # https://github.com/marketplace/actions/wordpress-plugin-deploy
+    #   env:
+    #     SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+    #     SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+    #     SOURCE_DIR: dist/
+    #     SLUG: daggerhart-openid-connect-generic
