@@ -28,7 +28,7 @@ define( 'OIDC_HIDE_SETTINGS_PAGE', true );
 // Customize plugin functionality via filters
 add_filter('openid-connect-generic-login-button-text', function( $text ) {
 
-    $text = __('Login with WSU SSO');
+    $text = 'Login with WSU SSO';
 
     return $text;
 
