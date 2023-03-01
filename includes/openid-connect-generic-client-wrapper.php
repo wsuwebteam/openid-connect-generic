@@ -398,7 +398,9 @@ class OpenID_Connect_Generic_Client_Wrapper {
 			 */
 			return $redirect_url;
 		} else {
-			return $url . sprintf( 'id_token_hint=%s&post_logout_redirect_uri=%s', $token_response['id_token'], urlencode( $redirect_url ) );
+			$url = $url . sprintf('id_token_hint=%s&post_logout_redirect_uri=%s', $token_response['id_token'], urlencode($redirect_url));
+            $url = apply_filters('openid-connect-logout-redirect-url', $url);
+            return $url;
 		}
 	}
 
