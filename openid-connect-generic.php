@@ -16,7 +16,7 @@
  * Plugin Name:       OpenID Connect Generic
  * Plugin URI:        https://github.com/daggerhart/openid-connect-generic
  * Description:       Connect to an OpenID Connect generic client using Authorization Code Flow.
- * Version:           3.9.1
+ * Version:           4.0.0
  * Requires at least: 4.9
  * Requires PHP:      7.2
  * Author:            daggerhart
@@ -91,7 +91,7 @@ class OpenID_Connect_Generic {
 	 *
 	 * @var string
 	 */
-	const VERSION = '3.9.1';
+	const VERSION = '4.0.0';
 
 	/**
 	 * Plugin settings.
@@ -181,7 +181,7 @@ class OpenID_Connect_Generic {
 
 		$this->upgrade();
 
-		if ( is_admin() ) {
+		if ( is_admin() && true !== OIDC_HIDE_SETTINGS_PAGE ) {
 			OpenID_Connect_Generic_Settings_Page::register( $this->settings, $this->logger );
 		}
 	}
@@ -349,12 +349,12 @@ class OpenID_Connect_Generic {
 				'acr_values'           => defined( 'OIDC_ACR_VALUES' ) ? OIDC_ACR_VALUES : '',
 
 				// Non-standard settings.
-				'no_sslverify'    => 0,
+				'no_sslverify'    => defined( 'OIDC_NO_SSL_VERIFY' ) ? intval( OIDC_NO_SSL_VERIFY ) : 0,
 				'http_request_timeout' => 5,
 				'identity_key'    => 'preferred_username',
 				'nickname_key'    => 'preferred_username',
 				'email_format'       => '{email}',
-				'displayname_format' => '',
+				'displayname_format' => defined( 'OIDC_DISPLAY_NAME_FORMAT' ) ? OIDC_DISPLAY_NAME_FORMAT : '',
 				'identify_with_username' => false,
 
 				// Plugin settings.
@@ -396,6 +396,9 @@ class OpenID_Connect_Generic {
 	}
 }
 
+// Configure plugin via constants
+require_once( 'includes/configuration.php' );
+
 OpenID_Connect_Generic::instance();
 
 register_activation_hook( __FILE__, array( 'OpenID_Connect_Generic', 'activation' ) );
@@ -403,3 +406,8 @@ register_deactivation_hook( __FILE__, array( 'OpenID_Connect_Generic', 'deactiva
 
 // Provide publicly accessible plugin helper functions.
 require_once( 'includes/functions.php' );
+
+// Setup middleware for network
+if( $_SERVER['HTTP_HOST'] === DOMAIN_CURRENT_SITE ){
+	require_once( 'includes/middleware.php' );
+}
