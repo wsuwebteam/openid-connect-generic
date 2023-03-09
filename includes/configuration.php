@@ -1,9 +1,9 @@
 <?php
-
-define( 'OIDC_MIDDLEWARE_LOGIN_URL', 'http://' . DOMAIN_CURRENT_SITE . '/wp-json/wsu-auth/v1/authorize');
-define( 'OIDC_MIDDLEWARE_LOGIN_CALLBACK_URL', 'http://' . DOMAIN_CURRENT_SITE . '/wp-json/wsu-auth/v1/authorize_callback');
-define( 'OIDC_MIDDLEWARE_LOGOUT_URL', 'http://' . DOMAIN_CURRENT_SITE . '/wp-json/wsu-auth/v1/logout');
-define( 'OIDC_MIDDLEWARE_LOGOUT_CALLBACK_URL', 'http://' . DOMAIN_CURRENT_SITE . '/wp-json/wsu-auth/v1/logout_callback');
+$middleware_domain = defined('DOMAIN_CURRENT_SITE') ? DOMAIN_CURRENT_SITE : $_SERVER['HTTP_HOST'];
+define( 'OIDC_MIDDLEWARE_LOGIN_URL', 'https://' . $middleware_domain . '/wp-json/wsu-auth/v1/authorize');
+define( 'OIDC_MIDDLEWARE_LOGIN_CALLBACK_URL', 'https://' . $middleware_domain . '/wp-json/wsu-auth/v1/authorize_callback');
+define( 'OIDC_MIDDLEWARE_LOGOUT_URL', 'https://' . $middleware_domain . '/wp-json/wsu-auth/v1/logout');
+define( 'OIDC_MIDDLEWARE_LOGOUT_CALLBACK_URL', 'https://' . $middleware_domain . '/wp-json/wsu-auth/v1/logout_callback');
 
 define( 'OIDC_LOGIN_TYPE', 'button' );
 define( 'OIDC_CLIENT_ID', getenv('OIDC_CLIENT_ID') );
