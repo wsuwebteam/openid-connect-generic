@@ -408,6 +408,6 @@ register_deactivation_hook( __FILE__, array( 'OpenID_Connect_Generic', 'deactiva
 require_once( 'includes/functions.php' );
 
 // Setup middleware for network
-if( $_SERVER['HTTP_HOST'] === DOMAIN_CURRENT_SITE ){
+if( !defined('DOMAIN_CURRENT_SITE') || $_SERVER['HTTP_HOST'] === DOMAIN_CURRENT_SITE ){
 	require_once( 'includes/middleware.php' );
 }
