@@ -63,6 +63,39 @@ add_filter('openid-connect-generic-alter-request', function( $request, $operatio
 
 }, 10, 2);
 
+add_action('openid-connect-generic-update-user-using-current-claim', function( $user, $user_claim) {
+
+	$user_data_version = 'r2701';
+	$user_ad_data = get_user_meta( $user->ID, '_wsuwp_ad_data', true );
+	$refresh = false;
+
+	if ( empty( $user_ad_data ) || ! isset( $user_ad_data['last_refresh'] ) || ! isset( $user_ad_data['version'] ) ) {
+		$refresh = true;
+	}
+
+	if ( false === $refresh && ( time() > ( absint( $user_ad_data['last_refresh'] ) + 86400 ) ) ) {
+		$refresh = true;
+	}
+
+	if ( false === $refresh && $user_data_version !== $user_ad_data['version'] ) {
+		$refresh = true;
+	}
+
+	if ( true === $refresh ) {
+		$user_ad_data = array(
+			'wsuaffiliation' => 'NA', // TODO: Can we get this from Okta?
+			'memberof' => $user_claim['umc_wp.groups'] ?? array(),
+			'user_type' => 'nid',
+		);
+
+		$user_ad_data['last_refresh'] = time();
+		$user_ad_data['version'] = $user_data_version;
+
+		update_user_meta( $user->ID, '_wsuwp_ad_data', $user_ad_data );
+	}
+
+}, 10, 2);
+
 ?>
 
 
