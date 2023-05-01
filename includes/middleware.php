@@ -136,5 +136,3 @@ class OpenID_Connect_Generic_Middleware {
 }
 
 OpenID_Connect_Generic_Middleware::init();
-
-?>
