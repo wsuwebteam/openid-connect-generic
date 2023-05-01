@@ -110,9 +110,3 @@ add_action('openid-connect-generic-update-user-using-current-claim', function( $
 	}
 
 }, 10, 2);
-
-?>
-
-
-
-

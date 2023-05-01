@@ -55,6 +55,8 @@ class OpenID_Connect_Generic_Middleware {
 
 		header( 'Location: ' . OIDC_ENDPOINT_LOGIN_URL . '?' . $querystrings );
 
+		exit();
+
 	}
 
 	public static function authorize_callback( \WP_REST_Request $request ) {
@@ -64,6 +66,8 @@ class OpenID_Connect_Generic_Middleware {
 		$querystrings = self::array_to_querystrings( $params );
 
 		header( 'Location: ' . $redirect . '&' . $querystrings );
+
+		exit();
 
 	}
 
@@ -75,6 +79,8 @@ class OpenID_Connect_Generic_Middleware {
 
 		header( 'Location: ' . OIDC_ENDPOINT_LOGOUT_URL . '?' . $querystrings );
 
+		exit();
+
 	}
 
 	public static function logout_callback( \WP_REST_Request $request ) {
@@ -82,6 +88,8 @@ class OpenID_Connect_Generic_Middleware {
 		$redirect = self::retrieve_session('post_logout_redirect_uri');
 
 		header( 'Location: ' . $redirect );
+
+		exit();
 
 	}
 
@@ -136,5 +144,3 @@ class OpenID_Connect_Generic_Middleware {
 }
 
 OpenID_Connect_Generic_Middleware::init();
-
-?>
