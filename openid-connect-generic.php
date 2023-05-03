@@ -411,3 +411,6 @@ require_once( 'includes/functions.php' );
 if( !defined('DOMAIN_CURRENT_SITE') || $_SERVER['HTTP_HOST'] === DOMAIN_CURRENT_SITE ){
 	require_once( 'includes/middleware.php' );
 }
+
+// Add login Page Mods
+require_once( 'includes/login.php' );

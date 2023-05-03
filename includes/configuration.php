@@ -43,7 +43,7 @@ function isHttps()
 // Customize plugin functionality via filters & actions
 add_filter('openid-connect-generic-login-button-text', function( $text ) {
 
-    return 'Login with WSU SSO';
+    return 'WSU Login';
 
 });
 
