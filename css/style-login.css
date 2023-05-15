@@ -1,0 +1,58 @@
+body {
+    background: #fff !important;
+}
+
+h1,
+#nav,
+.privacy-policy-page-link,
+#loginform {
+    display: none !important;
+}
+
+.wsu-logo {
+    display: block;
+    font-size: 0;
+    color: transparent;
+    width: 150px;
+    height: 150px;
+    background-color: #a60f2d;
+    border-radius: 50%;
+    margin: 6vh auto 4vh;
+    background-image: url( ../assets/img/coug-head.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#backtoblog {
+    text-align: center;
+}
+
+#backtoblog a {
+    color: #a60f2d !important;
+    text-decoration: underline !important;
+}
+
+.button.button-large {
+    color: #ca1237 !important;
+    border: 1px solid #ca1237 !important;
+    background-color: #fff !important;
+    font-size: 1.25rem !important;
+    display: inline-block;
+    box-sizing: border-box !important;
+    position: relative;
+    font-family: Montserrat,sans-serif !important;
+    border-radius: 6px !important;
+    padding: 1em calc(2.25rem + 0.25rem) !important;
+    font-weight: 600;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: box-shadow .2s cubic-bezier(0,0,.03,1);
+    text-decoration: none;
+}
+
+.button.button-large:focus,
+.button.button-large:hover {
+    background-color: #ca1237 !important;
+    color: #fff !important;
+    box-shadow: 0 5px 14px rgba(0,0,0,.4);
+}

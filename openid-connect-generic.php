@@ -16,7 +16,7 @@
  * Plugin Name:       OpenID Connect Generic
  * Plugin URI:        https://github.com/daggerhart/openid-connect-generic
  * Description:       Connect to an OpenID Connect generic client using Authorization Code Flow.
- * Version:           4.0.1
+ * Version:           4.0.2
  * Requires at least: 4.9
  * Requires PHP:      7.2
  * Author:            daggerhart
@@ -411,3 +411,6 @@ require_once( 'includes/functions.php' );
 if( !defined('DOMAIN_CURRENT_SITE') || $_SERVER['HTTP_HOST'] === DOMAIN_CURRENT_SITE ){
 	require_once( 'includes/middleware.php' );
 }
+
+// Add login Page Mods
+require_once( 'includes/login.php' );
