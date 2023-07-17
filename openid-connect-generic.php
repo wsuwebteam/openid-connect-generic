@@ -398,6 +398,7 @@ class OpenID_Connect_Generic {
 
 // Configure plugin via constants
 require_once( 'includes/configuration.php' );
+require_once( 'includes/user-profile-fields.php' );
 
 OpenID_Connect_Generic::instance();
 
