@@ -8,10 +8,10 @@ define( 'OIDC_MIDDLEWARE_LOGOUT_CALLBACK_URL', $middleware_protocol . $middlewar
 
 define( 'OIDC_LOGIN_TYPE', 'button' );
 define( 'OIDC_CLIENT_SCOPE', 'openid email profile umc_wp' );
-define( 'OIDC_ENDPOINT_LOGIN_URL', 'https://login.wsu.edu/oauth2/default/v1/authorize' );
-define( 'OIDC_ENDPOINT_USERINFO_URL', 'https://login.wsu.edu/oauth2/default/v1/userinfo' );
-define( 'OIDC_ENDPOINT_TOKEN_URL', 'https://login.wsu.edu/oauth2/default/v1/token' );
-define( 'OIDC_ENDPOINT_LOGOUT_URL', 'https://login.wsu.edu/oauth2/default/v1/logout' );
+define( 'OIDC_ENDPOINT_LOGIN_URL', 'https://login.wsu.edu/oauth2/ausnkfx56r2cZppkA2p7/v1/authorize' );
+define( 'OIDC_ENDPOINT_USERINFO_URL', 'https://login.wsu.edu/oauth2/ausnkfx56r2cZppkA2p7/v1/userinfo' );
+define( 'OIDC_ENDPOINT_TOKEN_URL', 'https://login.wsu.edu/oauth2/ausnkfx56r2cZppkA2p7/v1/token' );
+define( 'OIDC_ENDPOINT_LOGOUT_URL', 'https://login.wsu.edu/oauth2/ausnkfx56r2cZppkA2p7/v1/logout' );
 define( 'OIDC_ACR_VALUES', '' );
 define( 'OIDC_ENFORCE_PRIVACY', 0 );
 define( 'OIDC_LINK_EXISTING_USERS', 1 );
@@ -25,6 +25,7 @@ define( 'OIDC_HIDE_SETTINGS_PAGE', true );
 
 function isHttps()
 {
+
     if (array_key_exists("HTTPS", $_SERVER) && 'on' === $_SERVER["HTTPS"]) {
         return true;
     }
@@ -37,7 +38,9 @@ function isHttps()
     if (array_key_exists("HTTP_X_FORWARDED_PROTO", $_SERVER) && 'https' === $_SERVER["HTTP_X_FORWARDED_PROTO"]) {
         return true;
     }
+
     return false;
+
 }
 
 // Customize plugin functionality via filters & actions
