@@ -16,7 +16,7 @@
  * Plugin Name:       OpenID Connect Generic
  * Plugin URI:        https://github.com/daggerhart/openid-connect-generic
  * Description:       Connect to an OpenID Connect generic client using Authorization Code Flow.
- * Version:           4.0.3
+ * Version:           4.0.4
  * Requires at least: 4.9
  * Requires PHP:      7.2
  * Author:            daggerhart
@@ -91,7 +91,7 @@ class OpenID_Connect_Generic {
 	 *
 	 * @var string
 	 */
-	const VERSION = '4.0.0';
+	const VERSION = '4.0.4';
 
 	/**
 	 * Plugin settings.
@@ -350,7 +350,7 @@ class OpenID_Connect_Generic {
 
 				// Non-standard settings.
 				'no_sslverify'    => defined( 'OIDC_NO_SSL_VERIFY' ) ? intval( OIDC_NO_SSL_VERIFY ) : 0,
-				'http_request_timeout' => 5,
+				'http_request_timeout' => defined( 'OIDC_HTTP_REQUEST_TIMEOUT' ) ? intval( OIDC_HTTP_REQUEST_TIMEOUT ) : 5,
 				'identity_key'    => 'preferred_username',
 				'nickname_key'    => 'preferred_username',
 				'email_format'       => '{email}',
