@@ -7,7 +7,7 @@ define( 'OIDC_MIDDLEWARE_LOGOUT_URL', $middleware_protocol . $middleware_domain 
 define( 'OIDC_MIDDLEWARE_LOGOUT_CALLBACK_URL', $middleware_protocol . $middleware_domain . '/wp-json/wsu-auth/v1/logout_callback');
 
 define( 'OIDC_LOGIN_TYPE', 'button' );
-define( 'OIDC_CLIENT_SCOPE', 'openid email profile umc_wp' );
+define( 'OIDC_CLIENT_SCOPE', 'offline_access openid email profile umc_wp' );
 define( 'OIDC_ENDPOINT_LOGIN_URL', 'https://login.wsu.edu/oauth2/ausnkfx56r2cZppkA2p7/v1/authorize' );
 define( 'OIDC_ENDPOINT_USERINFO_URL', 'https://login.wsu.edu/oauth2/ausnkfx56r2cZppkA2p7/v1/userinfo' );
 define( 'OIDC_ENDPOINT_TOKEN_URL', 'https://login.wsu.edu/oauth2/ausnkfx56r2cZppkA2p7/v1/token' );
@@ -20,6 +20,7 @@ define( 'OIDC_REDIRECT_USER_BACK', 1 );
 define( 'OIDC_REDIRECT_ON_LOGOUT', 1 );
 
 define( 'OIDC_NO_SSL_VERIFY', 0 );
+define( 'OIDC_HTTP_REQUEST_TIMEOUT', 30 );
 define( 'OIDC_DISPLAY_NAME_FORMAT', '{given_name} {family_name}' );
 define( 'OIDC_HIDE_SETTINGS_PAGE', true );
 

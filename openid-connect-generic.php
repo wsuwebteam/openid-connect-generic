@@ -350,7 +350,7 @@ class OpenID_Connect_Generic {
 
 				// Non-standard settings.
 				'no_sslverify'    => defined( 'OIDC_NO_SSL_VERIFY' ) ? intval( OIDC_NO_SSL_VERIFY ) : 0,
-				'http_request_timeout' => 5,
+				'http_request_timeout' => defined( 'OIDC_HTTP_REQUEST_TIMEOUT' ) ? intval( OIDC_HTTP_REQUEST_TIMEOUT ) : 5,
 				'identity_key'    => 'preferred_username',
 				'nickname_key'    => 'preferred_username',
 				'email_format'       => '{email}',
