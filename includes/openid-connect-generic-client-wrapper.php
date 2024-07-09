@@ -530,6 +530,7 @@ class OpenID_Connect_Generic_Client_Wrapper {
 			// If linking existing users or creating new ones call the `create_new_user` method which handles both cases.
 			if ( $this->settings->link_existing_users || $this->settings->create_if_does_not_exist ) {
 				$user = $this->create_new_user( $subject_identity, $user_claim );
+				$user = apply_filters( 'openid-connect-generic-new-user', $user, $user_claim );
 				if ( is_wp_error( $user ) ) {
 					$this->error_redirect( $user );
 				}
