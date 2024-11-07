@@ -109,11 +109,11 @@ class OpenID_Connect_Generic_Middleware {
 
 	private static function swap_param( $params, $field, $value ) {
 
-		if ( ! session_id() ) {
-			session_start();
-		}
+		$transient_key = uniqid();
 
-		$_SESSION['tmp_' . $field] = $params[$field];
+		setcookie( 'tmp_' . $field, $transient_key, time() + 60, COOKIEPATH, COOKIE_DOMAIN );
+
+		set_site_transient($transient_key, $params[$field], 60);
 
 		$params[$field] = $value;
 
@@ -122,14 +122,12 @@ class OpenID_Connect_Generic_Middleware {
 	}
 
 
-	private static function retrieve_session($field){
+	private static function retrieve_session( $field ){
 
-		if ( ! session_id() ) {
-			session_start();
-		}
+		$transient_key = isset( $_COOKIE['tmp_' . $field] ) ? $_COOKIE['tmp_' . $field] : '';
 
-		$value = $_SESSION['tmp_' . $field];
-		unset($_SESSION['tmp_' . $field]);
+		$value = get_site_transient($transient_key);
+		unset($_COOKIE['tmp_' . $field]);
 
 		return $value;
 
