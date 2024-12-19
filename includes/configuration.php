@@ -22,7 +22,8 @@ define( 'OIDC_REDIRECT_ON_LOGOUT', 1 );
 define( 'OIDC_NO_SSL_VERIFY', 0 );
 define( 'OIDC_HTTP_REQUEST_TIMEOUT', 120 );
 define( 'OIDC_DISPLAY_NAME_FORMAT', '{given_name} {family_name}' );
-define( 'OIDC_HIDE_SETTINGS_PAGE', true );
+define( 'OIDC_ENABLE_LOGGING', true );
+define( 'OIDC_HIDE_SETTINGS_PAGE', false );
 
 function isHttps()
 {
