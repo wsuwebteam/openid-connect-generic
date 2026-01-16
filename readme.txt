@@ -4,7 +4,7 @@ Donate link: http://www.daggerhart.com/
 Tags: security, login, oauth2, openidconnect, apps, authentication, autologin, sso
 Requires at least: 4.9
 Tested up to: 6.0.1
-Stable tag: 4.2.0
+Stable tag: 4.2.1
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html

@@ -23,7 +23,7 @@ define( 'OIDC_NO_SSL_VERIFY', 0 );
 define( 'OIDC_HTTP_REQUEST_TIMEOUT', 120 );
 define( 'OIDC_STATE_TIME_LIMIT', 300 );
 define( 'OIDC_DISPLAY_NAME_FORMAT', '{given_name} {family_name}' );
-define( 'OIDC_ENABLE_LOGGING', false );
+define( 'OIDC_ENABLE_LOGGING', true );
 define( 'OIDC_HIDE_SETTINGS_PAGE', true );
 
 function isHttps()
